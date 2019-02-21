@@ -1,0 +1,17 @@
+{
+    "name": "ztavruz/restoran-zurab",
+    "require": {
+        "gabordemooij/redbean": "^5.2"
+    },
+    "autoload":{
+        "psr-4": {
+            "Engine\\": "engine"
+        }
+    },
+    "authors": [
+        {
+            "name": "ztavruz",
+            "email": "mr.stav.rus@mail.ru"
+        }
+    ]
+}
