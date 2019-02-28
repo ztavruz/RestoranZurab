@@ -1,0 +1,8 @@
+.border{
+    border: 2px solid black !important;
+    margin: 5px auto;
+    text-align: center;
+}
+.br{
+    border: 1px solid black !important;
+}
