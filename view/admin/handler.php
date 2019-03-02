@@ -3,21 +3,29 @@
 require(__DIR__."./../../vendor/autoload.php");
 require(__DIR__."./../../api/database/connection.php");
 
-use Engine\Cards;
+use Engine\Categories;
+use Engine\Goods;
 use \RedBeanPHP\R as R;
 
-$name = $_POST['nameCategories'];
+// ДАННЫЕ ДЛЯ РЕДАКТИРОВАНИЯ КАТЕГОРИЙ ТОВАРОВ
+$categories = new Categories;
+$goods = new Goods;
+// debug($goods->addGood());
 
-$id = $_POST['id'];
+$name =         $_POST['nameCategories'];
+$id =           $_POST['id'];
+$rename =       $_POST['renameCategories'];
+$newName =      $_POST['newNameCategories'];
+$number =       $_POST['numberCategories'];
+$deleteName =   $_POST['deleteCategories'];
 
-$rename = $_POST['renameCategories'];
-$newName = $_POST['newNameCategories'];
-$number = $_POST['numberCategories'];
+// ДАННЫЕ ДЛЯ РЕДАКТИРОВАНИЯ ТОВАРОВ
+$nameAddGood         = $_POST['nameAddGood'];
+$categoriForAddGoods = $_POST['categoriForAddGoods'];
 
-$deleteName = $_POST['deleteCategories'];
-
-$categories = new Cards;
-
+debug($nameAddGood);
+debug($categoriForAddGoods);
+//РЕДАКТИРОВАНИЕ КАТЕГОРИИ
 if($name != null){
     $categories->addCategories($name);
     // debug($categories);
@@ -30,10 +38,15 @@ if($deleteName != null){
     $categories->deleteCategories($deleteName);
 }
 
+//РЕДАКТИРОВАНИЕ ТОВАРА
+if($nameAddGood != null && $categoriForAddGoods != null){
+    $goods->addGood($nameAddGood, $categoriForAddGoods);
+}
+
 ?>
-<script>
+<!-- <script>
     window.location.href = window.location.origin + "/admin";
-</script>
+</script> -->
 
 <?php
 function debug($str){

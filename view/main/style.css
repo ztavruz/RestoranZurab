@@ -7,13 +7,24 @@
     max-width: 800px;
     max-height: 500px;
 }
+.navbar-custom{
+    background: #494646;
+}
+.navbar-brand{
+    border: 2px solid #000;
+}
+.navbar-brand img{
+    max-width: 200px;
+    max-height: 70px;
+}
 .nav-link {
     color: #f85c37 !important;
     font-size: 26px !important;
     font-weight: 500 !important;
 }
 
-
-body{
-
+.btn-customs{
+    
 }
+
+

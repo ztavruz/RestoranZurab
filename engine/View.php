@@ -10,12 +10,7 @@ class View{
     public function __construct($url){
         $this->page = $url;
         $this->title = $url;
-        // echo $this->libsCss();
     }
-
-    // public function render(){
-    //     return  require(VIEW_DIR."/{$this->page}/index.php");
-    // }
 
     private function libsCss(){
         $libs = scandir(LIBS_DIR."/css");
@@ -49,6 +44,10 @@ class View{
         ob_start();
         require(VIEW_DIR."/{$this->page}/index.php");
         $page = ob_get_clean();
+
+        // $header = require(VIEW_DIR."/blocks/header.php");  
+
+        // debug($header);
         $css = $this->loadCss();
         $js = $this->loadJs();
         $libsCss = $this->libsCss();

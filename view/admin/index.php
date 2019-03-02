@@ -1,11 +1,15 @@
 <?php
 
-use Engine\Cards;
+use Engine\Categories;
+use Engine\Goods;
 
-$categories = new Cards();
+$categories = new Categories();
 $categories = $categories->getCategories();
 
-// debug($categories);
+$goods = new Goods();
+$goods = $goods->getGoods();
+
+// debug($goods);
 
 ?>
 <h1 class="centered">Админ - панель</h1>
@@ -18,8 +22,8 @@ $categories = $categories->getCategories();
                     <div class="col-sm-6">
                         <ul class="nav flex-column">
                             <?php 
-                    foreach ($categories as $key => $value):
-                ?>
+                             foreach ($categories as $key => $value):
+                            ?>
 
                             <div class="btn-group dropright">
                                 <button type="button" class="btn btn-secondary dropdown-toggle btn-secondary-custom"
@@ -27,20 +31,16 @@ $categories = $categories->getCategories();
                                     <?php echo $value['name_categories']; ?>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <!-- Dropdown menu links -->
-                                    <a class="dropdown-item  active" href="#">Regular link</a>
-                                    <a class="dropdown-item" href="#">Active link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
-                                    <a class="dropdown-item" href="#">Another link</a>
+                                    <?php 
+                                        foreach($goods as $key => $value);
+                                    ?>
+                                    <a class="dropdown-item" href="#">
+                                        <?php  
+                                            if( qweqweqwe);
+                                        ?>
+                                    </a>
+                                    <!-- <a class="dropdown-item  active" href="#">Regular link</a>
+                                    <a class="dropdown-item" href="#">Active link</a> -->
                                 </div>
                             </div>
                             <?php endforeach; ?>
@@ -50,6 +50,7 @@ $categories = $categories->getCategories();
                 </div>
             </div>
         </div>
+
         <div class="col-sm-8 br">
             <div class="editcategories">
                 <div class="container-fluid">
@@ -67,16 +68,16 @@ $categories = $categories->getCategories();
                         </div>
                         <!-- ИЗМЕНЕНИЕ КАТЕГОРИИ -->
                         <div class="col-sm-4 border">
-                            <form  action="/view/admin/handler.php" method="post">
+                            <form action="/view/admin/handler.php" method="post">
                                 <h4>Измененить категорию</h4>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Выберите изменяемую категорию</label>
-                                    <select class="form-control" id="exampleFormControlSelect1"  name="renameCategories">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="renameCategories">
                                         <?php 
                     foreach ($categories as $key => $value):
                     ?>
 
-                                        <option >
+                                        <option>
                                             <?php echo $value['name_categories']; ?>
                                         </option>
                                         <?php endforeach; ?>
@@ -95,7 +96,7 @@ $categories = $categories->getCategories();
                         </div>
                         <!-- УДАЛЕНИЕ КАТЕГОРИИ -->
                         <div class="col-sm-4 border">
-                            <form  action="/view/admin/handler.php" method="post">
+                            <form action="/view/admin/handler.php" method="post">
                                 <h4>Удалить категорию</h4>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Выберите удаляемую категорию</label>
@@ -116,6 +117,86 @@ $categories = $categories->getCategories();
                     </div>
                 </div>
             </div>
+<!-- РЕДАКТИРОВАНИЕ ТОВАРОВ -->
+            <div class="editgoods">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- ДОБАВЛЕНИЕ ТОВАРА -->
+                        <div class="col-sm-4 border">
+                            <form action="/view/admin/handler.php" method="post">
+                                <h4>Добавить товар</h4>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Выберите категорию:</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="categoriForAddGoods">
+                                        <?php 
+                                            foreach ($categories as $key => $value):
+                                            ?>
+
+                                            <option>
+                                            <?php echo $value['name_categories']; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-control">Название:</label>
+                                    <input class="form-control" type="text" name="nameAddGood" placeholder="Задайте название товара:">
+                                </div>
+                                <button type="submit" class="btn btn-primary">ДОБАВИТЬ</button>
+                            </form>
+                        </div>
+                        <!-- ИЗМЕНЕНИЕ ТОВАРА -->
+                        <div class="col-sm-4 border">
+                            <form action="/view/admin/handler.php" method="post">
+                                <h4>Измененить товар</h4>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Выберите изменяемый товар</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="renameCategories">
+                                        <?php 
+                                            foreach ($categories as $key => $value):
+                                            ?>
+
+                                            <option>
+                                            <?php echo $value['name_categories']; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-control">Изменить название:</label>
+                                    <input class="form-control" type="text" name="newNameCategories" placeholder="Задайте название новое название">
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-control">Изменить порядковый номер:</label>
+                                    <input class="form-control" type="text" name="numberCategories" placeholder="Задайте очередь (не обязательно)">
+                                </div>
+                                <button type="submit" class="btn btn-primary">ИЗМЕНИТЬ</button>
+                            </form>
+                        </div>
+                        <!-- УДАЛЕНИЕ ТОВАРА  -->
+                        <div class="col-sm-4 border">
+                            <form action="/view/admin/handler.php" method="post">
+                                <h4>Удалить категорию</h4>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Выберите удаляемую категорию</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="deleteCategories">
+                                        <?php 
+                                            foreach ($categories as $key => $value):
+                                            ?>
+
+                                            <option name="deleteId">
+                                                <?php echo $value['name_categories']; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">УДАЛИТЬ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

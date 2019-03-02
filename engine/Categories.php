@@ -3,7 +3,7 @@
 namespace Engine;
 use \RedBeanPHP\R as R;
 
-class Cards{
+class Categories{
 
     public function getCategories(){
         $categories = R::getAll("SELECT * FROM categories");

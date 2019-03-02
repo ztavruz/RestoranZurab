@@ -1,8 +1,19 @@
+body{
+    background: rgb(219, 215, 215) !important;
+}
+
 .border{
     border: 2px solid black !important;
     margin: 5px auto;
     text-align: center;
+    background: #a1c490;
 }
 .br{
     border: 1px solid black !important;
+}
+
+label{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(150, 83, 6);
 }

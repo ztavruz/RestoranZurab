@@ -1,8 +1,8 @@
 <?php
 
-use Engine\Cards;
+use Engine\Categories;
 
-$categories = new Cards();
+$categories = new Categories();
 $categories = $categories->getCategories();
 
 // debug($categories);
@@ -11,6 +11,11 @@ $categories = $categories->getCategories();
 <h1 class="centered">Наше меню: ЖРИТЕ НЕ ОБЛЯПАЙТЕСЬ</h1>
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- БЛОК С ШАПКОЙ -->
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-2">
             <ul class="nav flex-column">
@@ -59,7 +64,7 @@ $categories = $categories->getCategories();
                                     <p class="card-text">Some quick example text to build on the card title and make up
                                         the bulk of
                                         the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+                                    <a href="#" class="btn btn-primary">ЗАКАЗАТЬ</a>
                                 </div>
                             </div>
                         </div>
