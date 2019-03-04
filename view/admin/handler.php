@@ -44,9 +44,9 @@ if($nameAddGood != null && $categoriForAddGoods != null){
 }
 
 ?>
-<!-- <script>
+<script>
     window.location.href = window.location.origin + "/admin";
-</script> -->
+</script>
 
 <?php
 function debug($str){

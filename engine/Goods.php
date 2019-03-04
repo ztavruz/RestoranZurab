@@ -12,6 +12,14 @@ class Goods{
         return $goods;
     }
 
+    public function getGoodsCategori($value1){
+        $binds =[
+            'categori_good'=> $value1
+        ];
+        $goods = R::getAll("SELECT * FROM goods WHERE categori_good = :categori_good", $binds);
+        return $goods;
+    }
+
     public function addGood($nameAddGood, $categoriForAddGoods){
         $binds =[
             'categoriForGood'=>$categoriForAddGoods

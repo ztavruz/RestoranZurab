@@ -33,16 +33,31 @@ class View{
     }
 
     public function loadJs(){
+        if(preg_match("#showAllGoods#", $this->page)){
+            $link = preg_replace("#^.*.$#", "showAllGoods", $this->page);
+            return "<script src='/view/{$link}/script.js'></script>";
+        }
         return "<script src='/view/{$this->page}/script.js'></script>";
     }
 
     public function loadCss(){
+        if(preg_match("#showAllGoods#", $this->page)){
+            $link = preg_replace("#^.*.$#", "showAllGoods", $this->page);
+            return "<link rel=\"stylesheet\" href=\"/view/{$link}/style.css\">";
+        }
         return "<link rel=\"stylesheet\" href=\"/view/{$this->page}/style.css\">"; 
     }
 
     public function render(){
         ob_start();
-        require(VIEW_DIR."/{$this->page}/index.php");
+
+        if(preg_match("#showAllGoods#", $this->page)){
+            require(VIEW_DIR."/{$this->page}");
+        }else{
+            require(VIEW_DIR."/{$this->page}/index.php");
+        }
+    
+        
         $page = ob_get_clean();
 
         // $header = require(VIEW_DIR."/blocks/header.php");  

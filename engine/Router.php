@@ -28,6 +28,9 @@ class Router{
             if($view == $this->url){
                 return true;
             }
+            if($view == preg_replace("#(^.*.$)#","showAllGoods", $this->url) ){
+                return true;
+            }
         }
 
         return false;
@@ -38,9 +41,10 @@ class Router{
 
             $view = new View($this->url);
             return $view->render();
-
+            
         }else{
             echo "Страница не найдена"; 
+            echo $this->url;
         }
     }
 

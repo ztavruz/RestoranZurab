@@ -7,11 +7,9 @@ $categories = new Categories();
 $allCategories = $categories->getCategories();
 
 $goods = new Goods();
-$allGoods = $goods->getGoods();
+$id = $_GET['id'];
+$allGoods = $goods->getGoodsCategori($id);
 
-
-
-// debug($categories);
 ?>
 
 
@@ -85,7 +83,7 @@ $allGoods = $goods->getGoods();
         </div>
 
         <div class="row">
-            <div class="col-sm-2 content-left">
+        <div class="col-sm-2 content-left">
                 <ul class="nav flex-column content-left-nav">
                     <?php 
                         foreach ($allCategories as $key1 => $value1):

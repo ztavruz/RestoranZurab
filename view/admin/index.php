@@ -4,10 +4,10 @@ use Engine\Categories;
 use Engine\Goods;
 
 $categories = new Categories();
-$categories = $categories->getCategories();
+$allCategories = $categories->getCategories();
 
 $goods = new Goods();
-$goods = $goods->getGoods();
+// $allGods = $goods->getGoods();
 
 // debug($goods);
 
@@ -22,23 +22,27 @@ $goods = $goods->getGoods();
                     <div class="col-sm-6">
                         <ul class="nav flex-column">
                             <?php 
-                             foreach ($categories as $key => $value):
+                             foreach ($allCategories as $key1 => $value1):
+                                // debug($value1);
                             ?>
-
+                            
                             <div class="btn-group dropright">
                                 <button type="button" class="btn btn-secondary dropdown-toggle btn-secondary-custom"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <?php echo $value['name_categories']; ?>
+                                    <?php echo $value1['name_categories']; ?>
                                 </button>
                                 <div class="dropdown-menu">
                                     <?php 
-                                        foreach($goods as $key => $value);
+                                        $currentCategoriGoods = $goods->getGoodsCategori($value1['id']);
+                                        foreach($currentCategoriGoods as $key2 => $value2):
+                                        // debug($good);
                                     ?>
                                     <a class="dropdown-item" href="#">
                                         <?php  
-                                            if( qweqweqwe);
+                                            echo $value2['name_good'];
                                         ?>
                                     </a>
+                                    <?php endforeach; ?>
                                     <!-- <a class="dropdown-item  active" href="#">Regular link</a>
                                     <a class="dropdown-item" href="#">Active link</a> -->
                                 </div>
@@ -74,11 +78,11 @@ $goods = $goods->getGoods();
                                     <label for="exampleFormControlSelect1">Выберите изменяемую категорию</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="renameCategories">
                                         <?php 
-                    foreach ($categories as $key => $value):
+                    foreach ($allCategories as $key1 => $value1):
                     ?>
 
                                         <option>
-                                            <?php echo $value['name_categories']; ?>
+                                            <?php echo $value1['name_categories']; ?>
                                         </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -102,11 +106,11 @@ $goods = $goods->getGoods();
                                     <label for="exampleFormControlSelect1">Выберите удаляемую категорию</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="deleteCategories">
                                         <?php 
-                    foreach ($categories as $key => $value):
+                   foreach ($allCategories as $key1 => $value1):
                     ?>
 
                                         <option name="deleteId">
-                                            <?php echo $value['name_categories']; ?>
+                                            <?php echo $value1['name_categories']; ?>
                                         </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -129,11 +133,11 @@ $goods = $goods->getGoods();
                                     <label for="exampleFormControlSelect1">Выберите категорию:</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="categoriForAddGoods">
                                         <?php 
-                                            foreach ($categories as $key => $value):
+                                            foreach ($allCategories as $key1 => $value1):
                                             ?>
 
                                             <option>
-                                            <?php echo $value['name_categories']; ?>
+                                            <?php echo $value1['name_categories']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -153,11 +157,11 @@ $goods = $goods->getGoods();
                                     <label for="exampleFormControlSelect1">Выберите изменяемый товар</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="renameCategories">
                                         <?php 
-                                            foreach ($categories as $key => $value):
+                                            foreach ($allCategories as $key1 => $value1):
                                             ?>
 
                                             <option>
-                                            <?php echo $value['name_categories']; ?>
+                                            <?php echo $value1['name_categories']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -181,11 +185,11 @@ $goods = $goods->getGoods();
                                     <label for="exampleFormControlSelect1">Выберите удаляемую категорию</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="deleteCategories">
                                         <?php 
-                                            foreach ($categories as $key => $value):
+                                            foreach ($allCategories as $key1 => $value1):
                                             ?>
 
                                             <option name="deleteId">
-                                                <?php echo $value['name_categories']; ?>
+                                                <?php echo $value1['name_categories']; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
