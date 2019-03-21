@@ -31,6 +31,36 @@ class Goods{
         R::store($newGood);
     }
 
+    public function renameCategories($rename, $newName, $number){
+        $binds =[
+            'name' => $rename
+        ];
+        $transformCategories = R::getRow("SELECT * FROM categories WHERE name_categories = :name LIMIT 1", $binds);
+        if($newName != "" && $number != "" ){
+            $renameCategories = R::load('categories', $transformCategories['id']);
+            $renameCategories->name_categories = $newName;
+            $renameCategories->number_categories = $number;
+            R::store($renameCategories);
+        }elseif($newName != "" && $number == ""){
+            $renameCategories = R::load('categories', $transformCategories['id']);
+            $renameCategories->name_categories = $newName;
+            R::store($renameCategories);
+        }elseif($number != "" && $newName == ""){
+            $renameCategories = R::load('categories', $transformCategories['id']);
+            $renameCategories->number_categories = $number;
+            R::store($renameCategories);
+        }
+    }
+    public function transformGood($renameGood, $imgGood, $numberGood){
+        $binds =[
+            'renameGood'=> $renameGood,
+            'imgGood'=> $imgGood,
+            'numberGood'=> $numberGood
+        ];
+        $transformGood = R::getRow("SELECT * FROM goods WHERE name_goods = :name LIMIT 1", $binds);
+
+    }
+
 }
 
 ?>

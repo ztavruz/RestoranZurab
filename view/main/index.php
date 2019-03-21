@@ -1,6 +1,7 @@
 <div class="container-fluid">
 
   <div class="header">
+  <a href="/admin/transformGood">transformGood</a>
     <div class="row">
       <div class="col-sm-12 col-present-custom">
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">

@@ -9,9 +9,6 @@ $allCategories = $categories->getCategories();
 $goods = new Goods();
 $allGoods = $goods->getGoods();
 
-
-
-// debug($categories);
 ?>
 
 
@@ -51,11 +48,6 @@ $allGoods = $goods->getGoods();
                             </li>
                             <li class="nav-item nav-item-customs">
                                 <a class="nav-link nav-link-customs" href="/about">О нас</a>
-                            </li>
-                            <li class="nav-item nav-item-customs">
-                                <a class="nav-link nav-link-customs" href="/menu">
-                                    Меню
-                                </a>
                             </li>
                             <li class="nav-item nav-item-customs">
                                 <a class="nav-link nav-link-customs" href="/certificates">

@@ -3,13 +3,14 @@
 use Engine\Categories;
 use Engine\Goods;
 
+$id = $_GET['id'];
+
 $categories = new Categories();
 $allCategories = $categories->getCategories();
+$titleCategori = $categories->getCurrentNameCategories($id);
 
 $goods = new Goods();
-$id = $_GET['id'];
 $allGoods = $goods->getGoodsCategori($id);
-
 ?>
 
 
@@ -52,7 +53,7 @@ $allGoods = $goods->getGoodsCategori($id);
                             </li>
                             <li class="nav-item nav-item-customs">
                                 <a class="nav-link nav-link-customs" href="/menu">
-                                    Меню
+                                    Назад  
                                 </a>
                             </li>
                             <li class="nav-item nav-item-customs">
@@ -78,7 +79,7 @@ $allGoods = $goods->getGoodsCategori($id);
 
         <div class="row">
             <div class="col-sm-5 header-present">
-                <h4 class="centered">Наш шеф-повар готовит:</h4>
+                <h4 class="centered"><?php echo $titleCategori; ?></h4>
             </div>
         </div>
 

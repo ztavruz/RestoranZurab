@@ -68,7 +68,7 @@ class View{
         $libsCss = $this->libsCss();
         $libsJs = $this->libsJs();
         $title = $this->title;
-
+        echo $this->page;
        require(VIEW_DIR."/layout.php");
     }
 }

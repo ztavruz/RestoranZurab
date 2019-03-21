@@ -14,6 +14,7 @@ class Router{
         $url = $_SERVER['REQUEST_URI'];
         $url = trim($url, "/");
         $url =  preg_replace("#\?.*$#", null, $url); 
+        
         if($url == ""){
             $url = "main";
         }
@@ -30,6 +31,7 @@ class Router{
             }
             if($view == preg_replace("#(^.*.$)#","showAllGoods", $this->url) ){
                 return true;
+                debug($this->url);
             }
         }
 
@@ -41,6 +43,7 @@ class Router{
 
             $view = new View($this->url);
             return $view->render();
+            
             
         }else{
             echo "Страница не найдена"; 

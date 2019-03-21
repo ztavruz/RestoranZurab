@@ -5,6 +5,11 @@ use \RedBeanPHP\R as R;
 
 class Categories{
 
+    public function getCurrentNameCategories($id){
+        $nameCategories = R::getRow("SELECT * FROM categories WHERE id LIKE ? LIMIT 1", [$id]);
+        return $nameCategories['name_categories'];
+    }
+
     public function getCategories(){
         $categories = R::getAll("SELECT * FROM categories");
         return $categories;
